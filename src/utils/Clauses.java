@@ -174,12 +174,73 @@ public class Clauses {
             }
         }
         if(N==16){
+            for(int i=-1;i<2;i+=2){
+                for(int j=-1;j<2;j+=2){
+                    for(int k=-1;k<2;k+=2){
+                        for(int l=-1;l<2;l+=2){
+                            for(int m=-1;m<2;m+=2){
+                                for(int n=-1;n<2;n+=2){
+                                    for(int o=-1;o<2;o+=2){
+                                        for(int p=-1;p<2;p+=2){
+                                            for(int q=-1;q<2;q+=2){
+                                                for(int a=-1;a<2;a+=2){
+                                                    for(int b=-1;b<2;b+=2){
+                                                        for(int c=-1;c<2;c+=2){
+                                                            for(int d=-1;d<2;d+=2){
+                                                                for(int e=-1;e<2;e+=2){
+                                                                    for(int f=-1;f<2;f+=2){
+                                                                        for(int g=-1;g<2;g+=2){
+                                                                            int[] clause = new int[N];
+                                                                            if(i+j+k+l+m+n+o+p+q+a+b+c+d+e+f+g ==14){
+                                                                                continue;
+                                                                            }
+                                                                            clause[0]=i*literals[0];
+                                                                            clause[1]=j*literals[1];
+                                                                            clause[2]=k*literals[2];
+                                                                            clause[3]=l*literals[3];
+                                                                            clause[4]=m*literals[4];
+                                                                            clause[5]=n*literals[5];
+                                                                            clause[6]=o*literals[6];
+                                                                            clause[7]=p*literals[7];
+                                                                            clause[8]=q*literals[8];
+                                                                            clause[9]=a*literals[9];
+                                                                            clause[10]=b*literals[10];
+                                                                            clause[11]=c*literals[11];
+                                                                            clause[12]=d*literals[12];
+                                                                            clause[13]=e*literals[13];
+                                                                            clause[14]=f*literals[14];
+                                                                            clause[15]=g*literals[15];
+
+                                                                            try {
+                                                                                solver.addClause(new VecInt(clause));
+
+                                                                            } catch (ContradictionException ex) {
+                                                                                ex.printStackTrace();
+                                                                            }
+                                                                        }
+                                                                    }
+
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
 
         }
         if(N==25){
 
         }
 
-
+        System.out.println("stop point");
     }
 }
