@@ -3,15 +3,25 @@ import org.sat4j.specs.IProblem;
 import org.sat4j.specs.ISolver;
 import org.sat4j.specs.TimeoutException;
 
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 import static utils.Clauses.addSudokuClauses;
 import static utils.Clauses.generateClauses;
 import static utils.Model.printSudokuModel;
+import static utils.ReadFile.getN;
 
 public class SudokuSolver {
     public static ISolver solver;
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
+        // choose file
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter filename : ");
+        String filename = sc.next();
+
+
         solver= SolverFactory.newDefault();
-        int n=9;
+        int n=getN(filename);
 
         //Each entry has unique value
         //row
@@ -22,12 +32,9 @@ public class SudokuSolver {
                 for(int k=1;k<=n;k++){
                     literals[k-1]=100*i+10*j+k;
                 }
-                generateClauses(solver,literals);
+                generateClauses(solver,literals,n);
             }
         }
-
-        /*System.out.println(solver);*/
-
 
         // ​Each row has all the numbers, each number only once
         for(int i=1; i<=n;i++){
@@ -36,11 +43,9 @@ public class SudokuSolver {
                 for(int j=1;j<=n;j++){
                     literals[j-1]=100*i+10*j+k;
                 }
-                generateClauses(solver,literals);
+                generateClauses(solver,literals,n);
             }
         }
-
-        /*System.out.println(solver);*/
 
         //Each column has all the numbers, each number only once
         for(int j=1; j<=n;j++){
@@ -50,37 +55,35 @@ public class SudokuSolver {
                 for(int i=1;i<=n;i++){
                     literals[i-1]=100*i+10*j+k;
                 }
-                generateClauses(solver,literals);
+                generateClauses(solver,literals,n);
             }
         }
 
-        /*System.out.println(solver);*/
-
         //​Each block has all the numbers
-        for(int i=0;i<3;i++){
-            for(int j=0; j<3;j++){
+        for(int i=0;i<Math.sqrt(n);i++){
+            for(int j=0; j<Math.sqrt(n);j++){
                 //each number exactly once
                 for(int k=1;k<=n;k++){
                     int[] literals = new int[n];
                     int counter=0;
-                    for(int h=3*i+1;h<=3*i+3;h++){
-                        for(int v=3*j+1;v<=3*j+3;v++){
+                    for(int h = (int) (Math.sqrt(n)*i+1); h<=Math.sqrt(n)*i+Math.sqrt(n); h++){
+                        for(int v = (int) (Math.sqrt(n)*j+1); v<=Math.sqrt(n)*j+Math.sqrt(n); v++){
                             literals[counter]=100*h+10*v+k;
                             counter++;
                         }
                     }
-                    generateClauses(solver,literals);
+                    generateClauses(solver,literals,n);
                 }
             }
         }
 
-        addSudokuClauses(solver);
+        addSudokuClauses(solver,filename);
 
         IProblem problem = solver;
         try {
             if(problem.isSatisfiable()){
                 int[] model=problem.model();
-                printSudokuModel(model);
+                printSudokuModel(model,n);
             } else {
                 System.out.println("Problem unsatisfiable");
             }

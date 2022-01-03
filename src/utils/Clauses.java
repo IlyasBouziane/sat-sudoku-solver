@@ -11,7 +11,7 @@ import static utils.ReadFile.getSudoku;
 
 public class Clauses {
 
-    public static void addSudokuClauses(ISolver solver) {
+    public static void addSudokuClauses(ISolver solver,String filename) {
         try {
             /* Sudoku 1
             solver.addClause(new VecInt(new int[]{115}));
@@ -97,7 +97,7 @@ public class Clauses {
 
             */
 
-            List<Integer> sudoku= getSudoku();
+            List<Integer> sudoku= getSudoku(filename);
             for (Integer element:sudoku) {
                 solver.addClause(new VecInt(new int[]{element}));
             }
@@ -107,35 +107,62 @@ public class Clauses {
         }
     }
 
-    public static void generateClauses(ISolver solver, int[] literals) {
-        for(int i=-1;i<2;i+=2){
-            for(int j=-1;j<2;j+=2){
-                for(int k=-1;k<2;k+=2){
-                    for(int l=-1;l<2;l+=2){
-                        for(int m=-1;m<2;m+=2){
-                            for(int n=-1;n<2;n+=2){
-                                for(int o=-1;o<2;o+=2){
-                                    for(int p=-1;p<2;p+=2){
-                                        for(int q=-1;q<2;q+=2){
-                                            int[] clause = new int[9];
-                                            if(i+j+k+l+m+n+o+p+q ==7){
-                                                continue;
-                                            }
-                                            clause[0]=i*literals[0];
-                                            clause[1]=j*literals[1];
-                                            clause[2]=k*literals[2];
-                                            clause[3]=l*literals[3];
-                                            clause[4]=m*literals[4];
-                                            clause[5]=n*literals[5];
-                                            clause[6]=o*literals[6];
-                                            clause[7]=p*literals[7];
-                                            clause[8]=q*literals[8];
+    public static void generateClauses(ISolver solver, int[] literals, int N) {
+        if(N==4){
+            for(int i=-1;i<2;i+=2){
+                for(int j=-1;j<2;j+=2){
+                    for(int k=-1;k<2;k+=2){
+                        for(int l=-1;l<2;l+=2){
+                            int[] clause = new int[N];
+                            if(i+j+k+l ==2){
+                                continue;
+                            }
+                            clause[0]=i*literals[0];
+                            clause[1]=j*literals[1];
+                            clause[2]=k*literals[2];
+                            clause[3]=l*literals[3];
 
-                                            try {
-                                                solver.addClause(new VecInt(clause));
+                            try {
+                                solver.addClause(new VecInt(clause));
 
-                                            } catch (ContradictionException e) {
-                                                e.printStackTrace();
+                            } catch (ContradictionException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        if(N==9){
+            for(int i=-1;i<2;i+=2){
+                for(int j=-1;j<2;j+=2){
+                    for(int k=-1;k<2;k+=2){
+                        for(int l=-1;l<2;l+=2){
+                            for(int m=-1;m<2;m+=2){
+                                for(int n=-1;n<2;n+=2){
+                                    for(int o=-1;o<2;o+=2){
+                                        for(int p=-1;p<2;p+=2){
+                                            for(int q=-1;q<2;q+=2){
+                                                int[] clause = new int[N];
+                                                if(i+j+k+l+m+n+o+p+q ==7){
+                                                    continue;
+                                                }
+                                                clause[0]=i*literals[0];
+                                                clause[1]=j*literals[1];
+                                                clause[2]=k*literals[2];
+                                                clause[3]=l*literals[3];
+                                                clause[4]=m*literals[4];
+                                                clause[5]=n*literals[5];
+                                                clause[6]=o*literals[6];
+                                                clause[7]=p*literals[7];
+                                                clause[8]=q*literals[8];
+
+                                                try {
+                                                    solver.addClause(new VecInt(clause));
+
+                                                } catch (ContradictionException e) {
+                                                    e.printStackTrace();
+                                                }
                                             }
                                         }
                                     }
@@ -146,6 +173,13 @@ public class Clauses {
                 }
             }
         }
+        if(N==16){
+
+        }
+        if(N==25){
+
+        }
+
 
     }
 }
