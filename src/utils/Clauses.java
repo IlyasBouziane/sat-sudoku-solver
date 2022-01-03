@@ -4,6 +4,11 @@ import org.sat4j.core.VecInt;
 import org.sat4j.specs.ContradictionException;
 import org.sat4j.specs.ISolver;
 
+import java.io.FileNotFoundException;
+import java.util.List;
+
+import static utils.ReadFile.getSudoku;
+
 public class Clauses {
 
     public static void addSudokuClauses(ISolver solver) {
@@ -67,7 +72,7 @@ public class Clauses {
             solver.addClause(new VecInt(new int[]{998}));
 
              */
-            solver.addClause(new VecInt(new int[]{133}));
+            /*solver.addClause(new VecInt(new int[]{133}));
             solver.addClause(new VecInt(new int[]{142}));
             solver.addClause(new VecInt(new int[]{168}));
             solver.addClause(new VecInt(new int[]{196}));
@@ -90,10 +95,14 @@ public class Clauses {
             solver.addClause(new VecInt(new int[]{966}));
             solver.addClause(new VecInt(new int[]{994}));
 
+            */
 
+            List<Integer> sudoku= getSudoku();
+            for (Integer element:sudoku) {
+                solver.addClause(new VecInt(new int[]{element}));
+            }
 
-
-        } catch (ContradictionException e) {
+        } catch (FileNotFoundException | ContradictionException e) {
             e.printStackTrace();
         }
     }

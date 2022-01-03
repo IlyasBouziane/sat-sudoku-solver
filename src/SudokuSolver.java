@@ -13,7 +13,6 @@ public class SudokuSolver {
         solver= SolverFactory.newDefault();
         int n=9;
 
-
         //Each entry has unique value
         //row
         for(int i=1; i<=n;i++){
