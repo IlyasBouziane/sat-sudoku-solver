@@ -1,15 +1,16 @@
+package main.java.solver;
+
 import org.sat4j.minisat.SolverFactory;
 import org.sat4j.specs.IProblem;
 import org.sat4j.specs.ISolver;
 import org.sat4j.specs.TimeoutException;
 
-import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-import static utils.Clauses.addSudokuClauses;
-import static utils.Clauses.generateClauses;
-import static utils.Model.printSudokuModel;
-import static utils.ReadFile.getN;
+import static main.java.utils.Clauses.addSudokuClauses;
+import static main.java.utils.Clauses.generateClauses;
+import static main.java.utils.Model.printSudokuModel;
+import static main.java.utils.ReadFile.getN;
 
 public class SudokuSolver {
     public static ISolver solver;

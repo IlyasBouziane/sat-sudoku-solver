@@ -1,4 +1,4 @@
-package utils;
+package main.java.utils;
 
 public class Model {
 
@@ -24,10 +24,8 @@ public class Model {
     private static int[] cleanModel(int[] model, int n) {
         int[] result = new int[n*n];
         int count = 0;
-        int lastField = 0;
         for(int i=0;i<model.length;i++){
             if(count<=n*n && model[i]>0) {
-                    lastField = model[i] / 10;
                     result[count] = model[i];
                     count++;
             }

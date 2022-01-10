@@ -1,4 +1,4 @@
-package utils;
+package main.java.utils;
 
 import org.sat4j.core.VecInt;
 import org.sat4j.specs.ContradictionException;
@@ -7,7 +7,7 @@ import org.sat4j.specs.ISolver;
 import java.io.FileNotFoundException;
 import java.util.List;
 
-import static utils.ReadFile.getSudoku;
+import static main.java.utils.ReadFile.getSudoku;
 
 public class Clauses {
 
@@ -240,7 +240,5 @@ public class Clauses {
         if(N==25){
 
         }
-
-        System.out.println("stop point");
     }
 }

@@ -1,16 +1,16 @@
-package utils;
+package main.java.utils;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 public class ReadFile {
         private static File myObj;
 
     public static List<Integer> getSudoku(String filename) throws FileNotFoundException {
+        System.out.println(System.getProperty("user.dir"));
         myObj = new File("C:\\Users\\hp\\Documents\\2021\\sat-sudoku-solver\\SudokuToTest\\"+filename+".txt");
         List<Integer> mySudoku = new ArrayList<>();
         Scanner myReader = new Scanner(myObj);
