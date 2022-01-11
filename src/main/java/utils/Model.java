@@ -3,6 +3,7 @@ package main.java.utils;
 public class Model {
 
     public static void printSudokuModel(int[] model,int n) {
+        System.out.println("");
         int[] result = cleanModel(model,n);
         for(int i=0;i<n;i++){
             for(int j=0;j<n;j++){

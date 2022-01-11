@@ -17,7 +17,7 @@ public class SudokuSolver {
     public static void main(String[] args) throws Exception {
         // choose file
         Scanner sc = new Scanner(System.in);
-        System.out.print("Enter filename : ");
+        System.out.print("Enter filename absolute path : ");
         String filename = sc.next();
 
 

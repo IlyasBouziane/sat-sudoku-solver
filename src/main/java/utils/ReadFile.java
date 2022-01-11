@@ -2,6 +2,7 @@ package main.java.utils;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -10,8 +11,7 @@ public class ReadFile {
         private static File myObj;
 
     public static List<Integer> getSudoku(String filename) throws FileNotFoundException {
-        System.out.println(System.getProperty("user.dir"));
-        myObj = new File("C:\\Users\\hp\\Documents\\2021\\sat-sudoku-solver\\SudokuToTest\\"+filename+".txt");
+        myObj = new File(filename);
         List<Integer> mySudoku = new ArrayList<>();
         Scanner myReader = new Scanner(myObj);
         //read n
@@ -111,7 +111,7 @@ public class ReadFile {
 
 
         public static Integer getN(String filename) throws Exception {
-            myObj = new File("C:\\Users\\hp\\Documents\\2021\\sat-sudoku-solver\\SudokuToTest\\"+filename+".txt");
+            myObj = new File(filename);
             Scanner myReader = new Scanner(myObj);
             Integer n = Integer.parseInt(myReader.nextLine());
             if( ! (n == 4 || n == 9 || n == 16 || n == 25) ){
