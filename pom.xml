@@ -35,7 +35,7 @@
                         <transformers>
                             <transformer
                                     implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                <mainClass>main.java.solver.SudokuSolver</mainClass>
+                                <mainClass>main.java.satsolver.SudokuSolver</mainClass>
                             </transformer>
                         </transformers>
                     </configuration>

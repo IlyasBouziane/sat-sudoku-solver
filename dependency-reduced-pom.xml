@@ -18,7 +18,7 @@
             <configuration>
               <transformers>
                 <transformer>
-                  <mainClass>main.java.solver.SudokuSolver</mainClass>
+                  <mainClass>main.java.satsolver.SudokuSolver</mainClass>
                 </transformer>
               </transformers>
             </configuration>
