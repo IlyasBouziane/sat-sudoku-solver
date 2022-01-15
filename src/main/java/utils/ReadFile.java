@@ -110,7 +110,7 @@ public class ReadFile {
     }
 
 
-        public static Integer getN(String filename) throws Exception {
+    public static Integer getN(String filename) throws Exception {
             myObj = new File(filename);
             Scanner myReader = new Scanner(myObj);
             Integer n = Integer.parseInt(myReader.nextLine());

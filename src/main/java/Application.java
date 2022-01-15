@@ -1,7 +1,8 @@
 package main.java;
 
 import main.java.backtracking.SudokuBacktracking;
-import main.java.satsolver.SudokuSolver;
+import main.java.generator.SudokuGenerator;
+import main.java.satsolver.SudokuSATSolver;
 
 import java.util.Scanner;
 
@@ -20,13 +21,14 @@ public class Application {
         String choice = sc.next();
 
         if(choice.equals("1")){
-            SudokuSolver sudokuSolver = new SudokuSolver();
-            sudokuSolver.satSolver(args);
+            SudokuSATSolver sudokuSolver = new SudokuSATSolver();
+            sudokuSolver.satSolve(args);
         } else if(choice.equals("2")){
             SudokuBacktracking sudokuBacktracking = new SudokuBacktracking();
             sudokuBacktracking.backtrack(args);
         } else if(choice.equals("3")){
-
+            SudokuGenerator sudokuGenerator = new SudokuGenerator();
+            sudokuGenerator.generate(args);
         } else {
             System.out.println("Wrong number");
         }

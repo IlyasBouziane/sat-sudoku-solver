@@ -1,4 +1,8 @@
 C:\Users\hp\Documents\2021\sat-sudoku-solver\src\main\java\utils\ReadFile.java
+C:\Users\hp\Documents\2021\sat-sudoku-solver\src\main\java\Application.java
 C:\Users\hp\Documents\2021\sat-sudoku-solver\src\main\java\utils\Clauses.java
 C:\Users\hp\Documents\2021\sat-sudoku-solver\src\main\java\utils\Model.java
-C:\Users\hp\Documents\2021\sat-sudoku-solver\src\main\java\solver\SudokuSolver.java
+C:\Users\hp\Documents\2021\sat-sudoku-solver\src\main\java\generator\Solver.java
+C:\Users\hp\Documents\2021\sat-sudoku-solver\src\main\java\generator\SudokuGenerator.java
+C:\Users\hp\Documents\2021\sat-sudoku-solver\src\main\java\satsolver\SudokuSATSolver.java
+C:\Users\hp\Documents\2021\sat-sudoku-solver\src\main\java\backtracking\SudokuBacktracking.java

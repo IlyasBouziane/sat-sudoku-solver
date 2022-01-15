@@ -6,7 +6,8 @@ import java.util.*;
 
 public class SudokuBacktracking {
 
-    public static int[][] GRID1 =       {
+    public static int SIZE;
+    public static int[][] GRID16 =       {
             {3,0, 0, 5, 7, 16, 2, 0, 12,11,0,0,0,0,10,0},
             {0, 1, 0, 16, 10, 0, 5, 0, 0,0,8,4,2,0,0,3},
             {0, 0, 11, 0, 0, 0, 4, 6, 0,1,10,0,16,15,0,0},
@@ -24,7 +25,7 @@ public class SudokuBacktracking {
             {11, 0, 0, 10, 3, 1, 0, 0, 0,2,0,14,7,0,12,0},
             {0, 6, 0, 0, 0, 0, 8, 4, 0,15,1,3,14,0,0,13}
     };
-    public static int[][] GRID2 =    {
+    public static int[][] GRID9 =    {
             {0, 0, 3, 2, 0, 8, 0, 0, 6},
             {0, 6, 0, 0, 0, 0, 0, 4, 0},
             {0, 0, 0, 0, 0, 7, 0, 0, 0},
@@ -39,7 +40,7 @@ public class SudokuBacktracking {
 
     private int[][] board;
     public static final int EMPTY = 0;
-    public static int SIZE;
+
     public static HashMap<int[], List<Integer>> POSSVALUESALLCELLS = new HashMap<>();
 
     public SudokuBacktracking(int[][] board) {
@@ -189,10 +190,10 @@ public class SudokuBacktracking {
         for(int i=1;i<=2;i++){
             if(i==1){
                 SIZE = 16;
-                sudoku= new SudokuBacktracking(GRID1);
+                sudoku= new SudokuBacktracking(GRID16);
             } else if(i==2){
                 SIZE = 9;
-                sudoku= new SudokuBacktracking(GRID2);
+                sudoku= new SudokuBacktracking(GRID9);
             } else {
                 throw new Exception("Error at Grid number");
             }

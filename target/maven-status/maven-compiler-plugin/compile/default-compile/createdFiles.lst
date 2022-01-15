@@ -1,4 +1,9 @@
+main\java\backtracking\SudokuBacktracking$1.class
+main\java\generator\Solver.class
+main\java\generator\SudokuGenerator.class
+main\java\utils\ReadFile.class
+main\java\Application.class
+main\java\backtracking\SudokuBacktracking.class
 main\java\utils\Clauses.class
 main\java\utils\Model.class
-main\java\solver\SudokuSolver.class
-main\java\utils\ReadFile.class
+main\java\satsolver\SudokuSATSolver.class

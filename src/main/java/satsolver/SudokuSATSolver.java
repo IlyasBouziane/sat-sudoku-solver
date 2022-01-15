@@ -12,9 +12,9 @@ import static main.java.utils.Clauses.generateClauses;
 import static main.java.utils.Model.printSudokuModel;
 import static main.java.utils.ReadFile.getN;
 
-public class SudokuSolver {
+public class SudokuSATSolver {
     public static ISolver solver;
-    public void satSolver(String[] args) throws Exception {
+    public void satSolve(String[] args) throws Exception {
 
             // choose file
             Scanner sc = new Scanner(System.in);
