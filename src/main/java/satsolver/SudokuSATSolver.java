@@ -26,10 +26,8 @@ public class SudokuSATSolver {
             int n=getN(filename);
 
 
-            //Each entry has unique value
-            //row
+            // each digit from 1 to n must occur and only once in each cell
             for(int i=1; i<=n;i++){
-                //column
                 for(int j=1;j<=n;j++){
                     int[] literals = new int[n];
                     for(int k=1;k<=n;k++){
@@ -39,20 +37,8 @@ public class SudokuSATSolver {
                 }
             }
 
-            // ​Each row has all the numbers, each number only once
-            for(int i=1; i<=n;i++){
-                for(int k=1;k<=n;k++){
-                    int[] literals = new int[n];
-                    for(int j=1;j<=n;j++){
-                        literals[j-1]=Integer.parseInt(Integer.toString(i)+"0"+Integer.toString(j)+"0"+Integer.toString(k));
-                    }
-                    generateClauses(solver,literals,n);
-                }
-            }
-
-            //Each column has all the numbers, each number only once
+            //each digit from 1 to n must occur and only once in each row.
             for(int j=1; j<=n;j++){
-                //each number exactly once
                 for(int k=1;k<=n;k++){
                     int[] literals = new int[n];
                     for(int i=1;i<=n;i++){
@@ -63,10 +49,21 @@ public class SudokuSATSolver {
                 }
             }
 
-            //​Each block has all the numbers
+            // each digit from 1 to n must occur and only once in each column.
+            for(int i=1; i<=n;i++){
+                for(int k=1;k<=n;k++){
+                    int[] literals = new int[n];
+                    for(int j=1;j<=n;j++){
+                        literals[j-1]=Integer.parseInt(Integer.toString(i)+"0"+Integer.toString(j)+"0"+Integer.toString(k));
+                    }
+                    generateClauses(solver,literals,n);
+                }
+            }
+
+
+            //each digit from 1 to n must occur and only once in each block.
             for(int i=0;i<Math.sqrt(n);i++){
                 for(int j=0; j<Math.sqrt(n);j++){
-                    //each number exactly once
                     for(int k=1;k<=n;k++){
                         int[] literals = new int[n];
                         int counter=0;
